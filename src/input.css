@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1e3a52;
+  --color-navy-light: #1f3b5c;
+  --color-navy-accent: #4e7aa7;
+
+  --font-serif: "Merriweather", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Noto Sans", system-ui, sans-serif;
+}
+
+@utility cv-document {
+  background-color: #e7eaee;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+
+  @variant print {
+    margin: 0;
+    background-color: white;
+    padding: 0;
+  }
+}
+
+@utility cv-page {
+  display: flex;
+  min-height: 297mm;
+  width: 210mm;
+  margin: 12mm auto;
+  background-color: #f5f2ed;
+  color: var(--color-navy);
+  box-shadow: 0 10px 40px rgb(21 42 67 / 25%);
+
+  @variant print {
+    height: 297mm;
+    min-height: 297mm;
+    width: 210mm;
+    margin: 0;
+    background-color: #f5f2ed;
+    box-shadow: none;
+  }
+}
+
+@utility cv-sidebar {
+  flex: none;
+  width: 68mm;
+  background-color: var(--color-navy);
+  color: white;
+}
+
+@utility cv-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+@utility cv-avatar {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 9999px;
+  border: 4px solid rgb(255 255 255 / 90%);
+  object-fit: cover;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+}
+
+@utility contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 7pt;
+  line-height: 1.5;
+  color: var(--color-slate-200);
+}
+
+@utility contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+@utility contact-icon {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-top: 0.1rem;
+  flex: none;
+}
+
+@utility contact-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+@utility cv-header {
+  margin-bottom: 1rem;
+}
+
+@utility cv-first-name {
+  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 22pt;
+  line-height: 1.5;
+  color: var(--color-navy);
+}
+
+@utility cv-name-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+@utility cv-name {
+  font-family: var(--font-heading);
+  font-size: 22pt;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-navy);
+}
+
+@utility cv-subtitle {
+  margin-top: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 8pt;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-navy-accent);
+}
+
+@utility profile-copy {
+  font-size: 7pt;
+  line-height: 2;
+  text-align: justify;
+  color: var(--color-slate-700);
+}
+
+@utility skill-category {
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+@utility section-title-sidebar {
+  margin: 2rem 0 1rem 0;
+  border-bottom: 1.5px solid color-mix(in srgb, white 30%, transparent);
+  padding-bottom: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: white;
+}
+
+@utility section-title-main {
+  margin: 2rem 0 1rem 0;
+  border-bottom: 1.5px solid var(--color-navy);
+  padding-bottom: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 10pt;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+@utility skill-chip {
+  border-radius: 0.2rem;
+  background-color: rgb(255 255 255 / 10%);
+  padding: 0.2rem 0.4rem;
+  font-size: 6pt;
+  line-height: 1;
+  color: white;
+}
+
+@utility experience-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+
+  &::before {
+    position: absolute;
+    top: 0.4rem;
+    left: 0.25rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--color-navy);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: 1.2rem;
+    left: 0.45rem;
+    height: calc(100% - 15px);
+    width: 0.1rem;
+    background-color: #d0d0d0;
+    content: "";
+  }
+}
+
+@utility experience-list {
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 7pt;
+  line-height: 1.5;
+  color: var(--color-slate-700);
+
+  & > li {
+    position: relative;
+    padding-left: 1em;
+  }
+
+  & > li::before {
+    position: absolute;
+    left: 0;
+    color: var(--color-navy-accent);
+    content: "•";
+  }
+
+  & > li + li {
+    margin-top: 0.1rem;
+  }
+}
+
+@utility experience-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+@utility experience-role {
+  font-family: var(--font-heading);
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+@utility experience-meta {
+  font-size: 7pt;
+  color: var(--color-slate-500);
+  white-space: nowrap;
+}
+
+@utility experience-location {
+  margin-bottom: 0.2rem;
+  font-size: 7pt;
+  font-style: italic;
+  color: var(--color-slate-500);
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
