@@ -98,10 +98,11 @@
 
 @utility cv-first-name {
   font-weight: 800;
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 22pt;
   line-height: 1.5;
   color: var(--color-navy);
+  text-transform: uppercase;
 }
 
 @utility cv-name-container {
@@ -111,11 +112,12 @@
 }
 
 @utility cv-name {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 22pt;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-navy);
+  text-transform: uppercase;
 }
 
 @utility cv-subtitle {
